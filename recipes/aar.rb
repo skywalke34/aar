@@ -5,41 +5,33 @@
 ##########################################################################
 
 apt_update 'Update the apt cache daily' do
-    frequency 86_400
-    action :periodic
+  frequency 86_400
+  action :periodic
 end
 
 # # # # # #  Install apache2   # # # # # # # #
 package 'apache2'
 
 service 'apache2' do
-    supports status: true
-    action [:enable, :start]
+  supports status: true
+  action [:enable, :start]
 end
 
 template '/var/www/html/index.html' do # ~FC033
   source 'index.html.erb'
 end
 
-# # # # # #  Install MySQL   # # # # # # # #
-package 'mysql'
-yum_package 'install_mysql' do
-    package_name ''
-    action :install
-end
-
 # # # # # #  Install Unzip # # # # # # # #
-yum_package 'install_unzip' do
-    package_name 'unzip'
-    action :install
-end
- 
-# # # # # #  Install wget # # # # # # # #
-yum_package 'install_wget' do
-   package_name 'wget'
-   action :install
+package 'install_unzip' do
+  package_name 'unzip'
+  action :install
 end
 
+# # # # # #  Install wget # # # # # # # #
+package 'install_wget' do
+  package_name 'wget'
+  action :install
+end
 
 # #!/usr/bin/python
 # # -*- coding: utf-8 -*-
@@ -130,4 +122,3 @@ end
 #     cur.execute("GRANT CREATE,INSERT,DELETE,UPDATE,SELECT on AARdb.* to aarapp@localhost")
 #     cur.close()
 #     db.close()#
-
