@@ -4,7 +4,7 @@ maintainer_email 'tracyfwalker@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures aar'
 long_description 'Installs/Configures aar'
-version '0.4.4'
+version '0.4.8'
 chef_version '>= 12.14' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are

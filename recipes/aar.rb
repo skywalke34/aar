@@ -33,6 +33,11 @@ package 'install_wget' do
   action :install
 end
 
+execute 'app-get_updates' do
+    command 'sudo apt-get update -y'
+    action :run
+end
+
 # #!/usr/bin/python
 # # -*- coding: utf-8 -*-
 # from subprocess import Popen
